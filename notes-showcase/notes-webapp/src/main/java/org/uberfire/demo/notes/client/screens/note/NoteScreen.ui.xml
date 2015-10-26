@@ -1,0 +1,59 @@
+<!--
+  ~ Copyright 2012 JBoss Inc
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~       http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:b="urn:import:org.gwtbootstrap3.client.ui">
+
+  <ui:style>
+    .textarea {
+      height: 250px !important;
+      width: 100%;
+      -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+      -moz-box-sizing: border-box; /* Firefox, other Gecko */
+      box-sizing: border-box;
+    }
+  </ui:style>
+
+  <g:HTMLPanel ui:field="panel" addStyleNames="col-xs-12 col-sm-6 col-md-4">
+    <div class="card-pf">
+      <div class="card-pf-heading">
+        <b:TextBox ui:field="title" addStyleNames="card-pf-title" placeholder="Title"/>
+      </div>
+      <div class="card-pf-body" style="height: 280px;">
+        <b:TextArea ui:field="tcontent" addStyleNames="{style.textarea}" placeholder="-- content --"/>
+      </div>
+      <div class="card-pf-footer">
+        <div class="row">
+          <div class="col-lg-7">
+            <b:InputGroup>
+              <b:TextBox placeholder="email" autoComplete="false" ui:field="email"/>
+              <b:InputGroupButton>
+                <b:Button ui:field="send" icon="ENVELOPE" visible="true"/>
+              </b:InputGroupButton>
+            </b:InputGroup>
+          </div>
+          <div class="col-lg-5">
+            <b:Button ui:field="save" icon="SAVE" visible="true">Save</b:Button>
+            <b:Button ui:field="delete" type="DANGER" icon="TRASH">Delete</b:Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </g:HTMLPanel>
+
+</ui:UiBinder>
