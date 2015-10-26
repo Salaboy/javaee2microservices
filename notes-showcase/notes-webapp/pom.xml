@@ -20,6 +20,7 @@
     <as.version>8.1.0.Final</as.version>
     <!-- Add the absolute path for $JBOSS_HOME below to manage another instance -->
     <errai.jboss.home>${project.build.directory}/wildfly-${as.version}</errai.jboss.home>
+<!--    <version.wildfly-swarm>1.0.0.Alpha4</version.wildfly-swarm>-->
   </properties>
 
   <dependencies>
@@ -49,17 +50,6 @@
       <artifactId>notes-persistence-backend</artifactId>
     </dependency>
 
-
-    <dependency>
-      <groupId>org.uberfire</groupId>
-      <artifactId>uberfire-cloud-api</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.uberfire</groupId>
-      <artifactId>uberfire-cloud-cdi</artifactId>
-    </dependency>
-    
     <dependency>
       <groupId>org.uberfire</groupId>
       <artifactId>uberfire-all</artifactId>
@@ -263,6 +253,13 @@
       <artifactId>xml-apis</artifactId>
       <scope>provided</scope>
     </dependency>
+    
+<!--    <dependency>
+      <groupId>org.wildfly.swarm</groupId>
+      <artifactId>wildfly-swarm-jaxrs-weld</artifactId>
+      <version>${version.wildfly-swarm}</version>
+    </dependency>-->
+    
   </dependencies>
 
   <build>
@@ -270,6 +267,72 @@
     <outputDirectory>src/main/webapp/WEB-INF/classes</outputDirectory>
 
     <plugins>
+        <plugin>
+            <groupId>org.jolokia</groupId>
+            <artifactId>docker-maven-plugin</artifactId>
+            <version>0.13.2</version>
+            <configuration>
+                <!-- Global configuration. -->
+                    
+                    
+                <!-- Although no authentication on registry, set empty values. If not, plugin push goal fails. -->
+                <watchInterval>1000</watchInterval>
+          
+                <useColor>true</useColor>
+                <logDate>default</logDate>
+                <verbose>true</verbose>
+                    
+                <images>
+
+           
+                    <image>
+                        <name>salaboy/notes-webapp</name>
+                        <alias>notes-webapp-${project.version}</alias>
+                            
+                        <build>
+                            <assembly>
+                                <dockerFileDir>${project.basedir}/src/main/docker/</dockerFileDir>
+                                <descriptor>${project.basedir}/src/main/assembly/docker-assembly.xml</descriptor>
+                            </assembly>
+                        </build>
+                        <run>
+                                
+                            <namingStrategy>none</namingStrategy>
+                                
+                            <ports>
+                                <port>jolokia.port:8080</port>
+                            </ports>
+                                
+                            <log>
+                                <prefix>DEMO</prefix>
+                                <date>ISO8601</date>
+                                <color>blue</color>
+                            </log>
+                                
+                        </run>
+                            
+                    </image>
+
+           
+                </images>
+                    
+            </configuration>
+                
+                
+
+        </plugin> 
+<!--        <plugin>
+            <groupId>org.wildfly.swarm</groupId>
+            <artifactId>wildfly-swarm-plugin</artifactId>
+            <version>${version.wildfly-swarm}</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>package</goal>
+                    </goals>
+                </execution>
+            </executions> 
+        </plugin>  -->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>gwt-maven-plugin</artifactId>
