@@ -52,6 +52,16 @@
 
     <dependency>
       <groupId>org.uberfire</groupId>
+      <artifactId>uberfire-cloud-api</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.uberfire</groupId>
+      <artifactId>uberfire-cloud-cdi</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.uberfire</groupId>
       <artifactId>uberfire-all</artifactId>
       <exclusions>
         <exclusion>
@@ -273,7 +283,6 @@
             <version>0.13.2</version>
             <configuration>
                 <!-- Global configuration. -->
-                    
                     
                 <!-- Although no authentication on registry, set empty values. If not, plugin push goal fails. -->
                 <watchInterval>1000</watchInterval>

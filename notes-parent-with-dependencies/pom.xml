@@ -751,6 +751,35 @@
         <version>${version.org.hibernate.javax.persistence.hibernate-jpa-2_0-api}</version>
       </dependency>
 
+      <dependency><!-- CDI Cloud -->
+        <groupId>com.esotericsoftware</groupId>
+        <artifactId>kryo</artifactId>
+        <version>${version.com.esotericsoftware.kryo}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.activemq</groupId>
+        <artifactId>activemq-all</artifactId>
+        <version>${version.org.apache.activemq}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.activemq</groupId>
+        <artifactId>artemis-core-client</artifactId>
+        <version>${version.org.apache.activemq.artemis}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.qpid</groupId>
+        <artifactId>qpid-jms-client</artifactId>
+        <version>${version.org.apache.qpid.jms.client}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>cglib</groupId>
+        <artifactId>cglib-nodep</artifactId>
+        <version>${version.cglib.cglib.nodep}</version>
+      </dependency>
       <dependency>
         <groupId>org.jasypt</groupId>
         <artifactId>jasypt</artifactId>
