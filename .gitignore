@@ -18,3 +18,7 @@
 
 # Live editing asciidoc leaves .html files behind in the source dir
 uberfire-docs/src/main/asciidoc/*.html
+/notes-persistence/drools-jax-rs/target/
+/notes-persistence/notes-persistence-web/target/
+/notes-mail/notes-persistence-web/target/
+/notes-mail/notes-mail-web/target/

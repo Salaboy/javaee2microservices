@@ -15,5 +15,6 @@
   <modules>
     <module>notes-mail-api</module>
     <module>notes-mail-backend</module>
+    <module>notes-mail-web</module>
   </modules>
 </project>

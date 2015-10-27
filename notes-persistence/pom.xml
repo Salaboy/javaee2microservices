@@ -15,5 +15,6 @@
   <modules>
     <module>notes-persistence-api</module>
     <module>notes-persistence-backend</module>
+    <module>notes-persistence-web</module>
   </modules>
 </project>
